@@ -2,6 +2,7 @@ class ArticlesController < InheritedResources::Base
 
   def create
     @article = Article.new(article_params)
+    binding.pry
     @article.author = current_user
     create!
   end
