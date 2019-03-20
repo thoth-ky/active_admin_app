@@ -1,8 +1,7 @@
 class ArticlesController < InheritedResources::Base
-
+  load_and_authorize_resource except: [:show, :index]
   def create
     @article = Article.new(article_params)
-    binding.pry
     @article.author = current_user
     create!
   end
